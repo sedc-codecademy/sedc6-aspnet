@@ -34,20 +34,12 @@ namespace DemoApp.WebMvc.Controllers
             return View();
         }
 
-        // POST: Image/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Image image)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            _images.Add(image);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: Image/Edit/5
