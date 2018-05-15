@@ -16,9 +16,9 @@ namespace DemoApp.WebMvc.Controllers
             new Image{Id=3, DisplayName= "Image3", Description = "desc3", Height= 100, Width = 100 }
         };
         // GET: Image
+
         public ActionResult Index()
         {
-
             return View(_images);
         }
 
@@ -51,18 +51,21 @@ namespace DemoApp.WebMvc.Controllers
 
         // POST: Image/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Image image)
         {
-            try
+            var img = _images.FirstOrDefault(x => x.Id == id);
+            if (img == null)
             {
-                // TODO: Add update logic here
-
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            img.Height = image.Height;
+            img.Width = image.Width;
+            img.DisplayName = image.DisplayName;
+            img.Description = image.Description;
+            img.ImageUrl = image.ImageUrl;
+
+            return RedirectToAction("Index");
         }
 
         // GET: Image/Delete/5
@@ -85,6 +88,18 @@ namespace DemoApp.WebMvc.Controllers
             {
                 return View();
             }
+        }
+
+        [HandleError]
+        public ActionResult Error()
+        {
+            throw new Exception();
+        }
+
+        [OutputCache(Duration = 15)]
+        public ActionResult Cache()
+        {
+            return View();
         }
     }
 }
