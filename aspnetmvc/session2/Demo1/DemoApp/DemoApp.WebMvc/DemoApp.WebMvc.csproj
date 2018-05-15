@@ -200,6 +200,7 @@
     <Content Include="Views\Products\AllProducts.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Image\Create.cshtml" />
+    <Content Include="Views\Image\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

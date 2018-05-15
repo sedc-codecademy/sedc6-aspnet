@@ -11,9 +11,9 @@ namespace DemoApp.WebMvc.Controllers
     {
         private static List<Image> _images = new List<Image>
         {
-            new Image{ DisplayName= "Image1", Description = "desc1", Height= 100, Width = 100 },
-            new Image{ DisplayName= "Image2", Description = "desc2", Height= 100, Width = 100 },
-            new Image{ DisplayName= "Image3", Description = "desc3", Height= 100, Width = 100 }
+            new Image{Id=1, DisplayName= "Image1", Description = "desc1", Height= 100, Width = 100 },
+            new Image{Id=2, DisplayName= "Image2", Description = "desc2", Height= 100, Width = 100 },
+            new Image{Id=3, DisplayName= "Image3", Description = "desc3", Height= 100, Width = 100 }
         };
         // GET: Image
         public ActionResult Index()
@@ -45,7 +45,8 @@ namespace DemoApp.WebMvc.Controllers
         // GET: Image/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var image = _images.FirstOrDefault(i => i.Id == id);
+            return View(image);
         }
 
         // POST: Image/Edit/5

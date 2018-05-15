@@ -7,6 +7,7 @@ namespace DemoApp.WebMvc.Models
 {
     public class Image
     {
+        public int Id { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
         public string Description { get; set; }
