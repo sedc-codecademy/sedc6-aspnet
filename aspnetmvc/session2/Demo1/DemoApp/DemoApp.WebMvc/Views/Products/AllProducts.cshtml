@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "AllProducts";
+}
+
+
+
+<h2>AllProducts</h2>
+<h1>There are totally @ViewBag.Products.Count</h1>
+
+<ul>
+@foreach (var item in ViewBag.Products)
+{
+    <li>@item</li>
+}
+</ul>
