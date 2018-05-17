@@ -199,6 +199,8 @@
     <Content Include="Views\Student\Info.cshtml" />
     <Content Include="Views\Shared\Navbar.cshtml" />
     <Content Include="Views\Shared\View.cshtml" />
+    <Content Include="Views\Student\View.cshtml" />
+    <Content Include="Views\Student\PartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
