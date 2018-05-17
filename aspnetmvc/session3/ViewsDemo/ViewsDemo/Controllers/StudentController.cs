@@ -8,6 +8,12 @@ namespace ViewsDemo.Controllers
 {
     public class StudentController : Controller
     {
+        // GET: Student
+        public ActionResult Info()
+        {
+            return View();
+        }
+
 
         // GET: Student
         public ActionResult Index()

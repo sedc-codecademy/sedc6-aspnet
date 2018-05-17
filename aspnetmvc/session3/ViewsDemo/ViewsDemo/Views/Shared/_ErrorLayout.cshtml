@@ -9,12 +9,14 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>_ErrorLayout</title>
+    @RenderSection("styles",false)
 </head>
 <body>
     <div>
-        <h1>before body</h1>
+        <h1>Sedc layout</h1>
         @RenderBody()
-        <h1>before body</h1>
+        <h1>sedc footer</h1>
     </div>
+    @RenderSection("scripts",false)
 </body>
 </html>
