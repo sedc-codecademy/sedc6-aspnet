@@ -28,8 +28,7 @@ namespace ViewsDemo.Controllers
         [HttpPost]
         public ActionResult Create(Picture picture)
         {
-            
-            return View();
+            return View("~/Views/Picture/CreateWithHelpers.cshtml");
         }
     }
 }

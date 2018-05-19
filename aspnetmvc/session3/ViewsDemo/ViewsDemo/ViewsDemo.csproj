@@ -205,9 +205,8 @@
     <Content Include="Views\Student\View.cshtml" />
     <Content Include="Views\Student\PartialView.cshtml" />
     <Content Include="Views\Picture\Index.cshtml" />
-    <Content Include="Views\Picture\_Create.cshtml" />
-    <Content Include="Views\Picture\CreateWithHelpers.cshtml" />
     <Content Include="Views\Picture\Create.cshtml" />
+    <Content Include="Views\Picture\CreateWithHelpers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
