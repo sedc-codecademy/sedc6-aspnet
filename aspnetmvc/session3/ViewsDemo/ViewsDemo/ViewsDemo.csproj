@@ -154,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CutomAttribute.cs" />
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -204,6 +205,9 @@
     <Content Include="Views\Student\View.cshtml" />
     <Content Include="Views\Student\PartialView.cshtml" />
     <Content Include="Views\Picture\Index.cshtml" />
+    <Content Include="Views\Picture\_Create.cshtml" />
+    <Content Include="Views\Picture\CreateWithHelpers.cshtml" />
+    <Content Include="Views\Picture\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
