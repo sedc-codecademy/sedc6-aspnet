@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ViewsDemo.Models.Picture>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Picture\Index</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Url</th>
+            <th>Id</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var picture in this.Model)
+        {
+        <tr>
+            <td>@picture.DisplayName</td>
+            <td>@picture.Url</td>
+            <td>@picture.Id</td>
+            <td></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
