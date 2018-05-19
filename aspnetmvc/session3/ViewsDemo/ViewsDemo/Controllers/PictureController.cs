@@ -12,15 +12,15 @@ namespace ViewsDemo.Controllers
     {
         public ActionResult Index()
         {
-            /*backed code here (database calls, api calls ....)*/
-            return View(new List<Picture>() {
-                new Picture{Id=1,DisplayName="asd",Url="http://asd"},
-                new Picture{Id=2,DisplayName="qwe",Url="http://qwe"},
-            });
+            SedcDatabase database = new SedcDatabase();
+            List<Picture> pictures = database.Pictures
+                .ToList();
+            return View(pictures);
         }
 
         public ActionResult Create()
         {
+
             //string path =  Directory.GetCurrentDirectory();
             return View("~/Views/Picture/CreateWithHelpers.cshtml");
         }
@@ -28,7 +28,14 @@ namespace ViewsDemo.Controllers
         [HttpPost]
         public ActionResult Create(Picture picture)
         {
-            return View("~/Views/Picture/CreateWithHelpers.cshtml");
+            if (ModelState.IsValid)
+            {
+                var db = new SedcDatabase();
+                db.Pictures.Add(picture);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View("~/Views/Picture/CreateWithHelpers.cshtml", picture);
         }
     }
 }

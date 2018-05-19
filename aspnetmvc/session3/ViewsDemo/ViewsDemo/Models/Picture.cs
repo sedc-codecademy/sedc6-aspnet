@@ -4,6 +4,7 @@ namespace ViewsDemo.Models
 {
     public class Picture
     {
+        [Key]
         public int Id { get; set; }
         
         //[Custom("some error message","optional param",MinValue =1,MaxValue =10)]
