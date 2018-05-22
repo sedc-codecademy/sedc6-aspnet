@@ -43,5 +43,22 @@ namespace Sedc.MusicManager.WebApp.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        public ActionResult Details(int? id)
+        {
+            if (!id.HasValue)
+            {
+                return RedirectToAction("index");
+            }
+
+
+            var song = _db.Songs.FirstOrDefault(x => x.Id == id);
+            if (song == null)
+                return RedirectToAction("Index");
+
+            return View(song);
+        }
     }
 }
