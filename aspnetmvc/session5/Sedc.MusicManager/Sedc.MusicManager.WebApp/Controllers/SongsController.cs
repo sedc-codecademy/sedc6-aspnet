@@ -24,5 +24,10 @@ namespace Sedc.MusicManager.WebApp.Controllers
 
             return View(songs);
         }
+
+        public ActionResult Create()
+        {   
+            return View();
+        }
     }
 }
