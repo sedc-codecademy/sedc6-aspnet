@@ -10,24 +10,38 @@ namespace Sedc.MusicManager.WebApp.Controllers
 {
     public class SongsController : Controller
     {
+        private readonly MusicDb _db;
+
+        public SongsController()
+        {
+            _db = new MusicDb();
+        }
+
 
         public ActionResult Index()
         {
-            MusicDb db = new MusicDb();
-            
-            IQueryable<Song> results = db.Songs
-                .Where(s => s.Duration > 100)
-                .Where(s => s.Duration > 100)
-                .Where(s => s.Duration > 100)   ;
-
-            List<Song> songs = results.ToList();
-
+            var songs = _db.Songs.ToList();
             return View(songs);
         }
 
+        [HttpGet]
         public ActionResult Create()
-        {   
+        {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Song song)
+        {
+            if (!ModelState.IsValid)
+            {
+                //return the same page with error messages
+                return View(song);
+            }
+            //save to database
+            _db.Songs.Add(song);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
