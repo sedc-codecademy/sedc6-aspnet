@@ -60,7 +60,14 @@ namespace Sedc.MusicManager.WebApp.Controllers
             }
 
 
-            var song = _db.Songs.FirstOrDefault(x => x.Id == id);
+            var song = _db.Songs
+                .Select(s => new SongWithAlbumViewModel
+                {
+                    Song = s,
+                    AlbumTitle = s.Album.Title
+                })
+                .FirstOrDefault(x => x.Song.Id == id);
+
             if (song == null)
                 return RedirectToAction("Index");
 
@@ -110,7 +117,12 @@ namespace Sedc.MusicManager.WebApp.Controllers
             if (!id.HasValue)
                 return RedirectToAction("Index");
 
-            var dbSong = _db.Songs.FirstOrDefault(x => x.Id == id);
+            var dbSong = _db.Songs
+                .Select(s => new SongWithAlbumViewModel
+                {
+                    Song = s,
+                    AlbumTitle = s.Album.Title
+                }).FirstOrDefault(x => x.Song.Id == id);
             if (dbSong == null)
                 return RedirectToAction("Index");
 
