@@ -1,5 +1,6 @@
 ﻿using Sedc.MusicManager.WebApp.Data;
 using Sedc.MusicManager.WebApp.Models;
+using Sedc.MusicManager.WebApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,8 +21,14 @@ namespace Sedc.MusicManager.WebApp.Controllers
 
         public ActionResult Index()
         {
-            var songs = _db.Songs.ToList();
-            return View(songs);
+            var songs = _db.Songs
+                .Select(s => new SongWithAlbumViewModel
+                {
+                    Song = s,
+                    AlbumTitle = s.Album.Title
+                });
+
+            return View(songs.ToList());
         }
 
         [HttpGet]
