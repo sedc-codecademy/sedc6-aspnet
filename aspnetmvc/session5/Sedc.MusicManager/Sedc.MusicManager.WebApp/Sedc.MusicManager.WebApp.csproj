@@ -167,6 +167,7 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CreateSongViewModel.cs" />
     <Compile Include="ViewModels\SongWithAlbumViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

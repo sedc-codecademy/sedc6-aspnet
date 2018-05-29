@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.Song.Title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.Song.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Duration)
+            @Html.DisplayNameFor(model => model.Song.Duration)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AlbumId)
+            @Html.DisplayNameFor(model => model.Song.AlbumId)
         </th>
         <th>
             Album
@@ -32,24 +32,24 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Title)
+            @Html.DisplayFor(modelItem => item.Song.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.Song.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Duration)
+            @Html.DisplayFor(modelItem => item.Song.Duration)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AlbumId)
+            @Html.DisplayFor(modelItem => item.Song.AlbumId)
         </td>
         <td>
-            @item.Album.Title
+            @item.AlbumTitle
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Song.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Song.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Song.Id })
         </td>
     </tr>
 }
