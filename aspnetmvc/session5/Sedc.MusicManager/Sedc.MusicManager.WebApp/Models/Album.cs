@@ -17,7 +17,7 @@ namespace Sedc.MusicManager.WebApp.Models
         public Genre Genre { get; set; }
 
         [ForeignKey("Artist")]
-        public int ArtistId { get; set; }
+        public int? ArtistId { get; set; }
 
         public virtual Artist Artist { get; set; }
 
