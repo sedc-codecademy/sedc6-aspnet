@@ -27,14 +27,20 @@ namespace Sedc.MusicManager.WebApp.Controllers
                     Song = s,
                     AlbumTitle = s.Album.Title
                 });
-
-            return View(songs.ToList());
+            
+            var result = songs.ToList();
+            return View(result);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var albums = _db.Albums.ToList();
+            var vm = new CreateSongViewModel
+            {
+                Albums = albums
+            };
+            return View(vm);
         }
 
         [HttpPost]
@@ -42,8 +48,13 @@ namespace Sedc.MusicManager.WebApp.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var vm = new CreateSongViewModel
+                {
+                    Song = song,
+                    Albums = _db.Albums.ToList()
+                };
                 //return the same page with error messages
-                return View(song);
+                return View(vm);
             }
             //save to database
             _db.Songs.Add(song);
