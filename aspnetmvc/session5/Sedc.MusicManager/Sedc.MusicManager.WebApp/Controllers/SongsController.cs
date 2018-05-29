@@ -43,7 +43,7 @@ namespace Sedc.MusicManager.WebApp.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
         [HttpGet]
         public ActionResult Details(int? id)
         {
@@ -93,6 +93,36 @@ namespace Sedc.MusicManager.WebApp.Controllers
             dbSong.Duration = song.Duration;
 
             _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int? id)
+        {
+            if (!id.HasValue)
+                return RedirectToAction("Index");
+
+            var dbSong = _db.Songs.FirstOrDefault(x => x.Id == id);
+            if (dbSong == null)
+                return RedirectToAction("Index");
+
+            return View(dbSong);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int? id, Song song)
+        {
+            if (!id.HasValue)
+                return RedirectToAction("Index");
+
+            var dbSong = _db.Songs.FirstOrDefault(x => x.Id == id);
+            if (dbSong == null)
+                return RedirectToAction("Index");
+
+            _db.Songs.Remove(dbSong);
+
+            var modifiedCount = _db.SaveChanges();
 
             return RedirectToAction("Index");
         }
