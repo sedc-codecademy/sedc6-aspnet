@@ -1,4 +1,4 @@
-﻿using Sedc.MusicManager.WebApp.Models;
+﻿using Sedc.MusicManager.DomainModels;
 
 namespace Sedc.MusicManager.WebApp.ViewModels
 {

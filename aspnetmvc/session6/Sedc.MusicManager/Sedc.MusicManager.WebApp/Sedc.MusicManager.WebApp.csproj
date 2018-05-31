@@ -158,7 +158,6 @@
     <Compile Include="Controllers\ArtistsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SongsController.cs" />
-    <Compile Include="Data\MusicDb.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +239,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sedc.MusicManager.DataLayer\Sedc.MusicManager.DataLayer.csproj">
+      <Project>{4170AF25-A513-4F07-8DCD-1DD2312B3466}</Project>
+      <Name>Sedc.MusicManager.DataLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sedc.MusicManager.DomainModels\Sedc.MusicManager.DomainModels.csproj">
       <Project>{e7c07faa-431d-44b2-950d-a49a7cde9f28}</Project>
       <Name>Sedc.MusicManager.DomainModels</Name>

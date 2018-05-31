@@ -1,4 +1,4 @@
-﻿using Sedc.MusicManager.WebApp.Models;
+﻿using Sedc.MusicManager.DomainModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

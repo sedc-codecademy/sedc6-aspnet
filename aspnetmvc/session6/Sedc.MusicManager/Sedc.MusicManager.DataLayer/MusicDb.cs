@@ -1,7 +1,7 @@
 ﻿using Sedc.MusicManager.DomainModels;
 using System.Data.Entity;
 
-namespace Sedc.MusicManager.WebApp.Data
+namespace Sedc.MusicManager.DataLayer
 {
     public class MusicDb : DbContext
     {

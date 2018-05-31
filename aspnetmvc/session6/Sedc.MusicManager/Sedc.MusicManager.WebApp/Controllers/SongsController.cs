@@ -1,4 +1,4 @@
-﻿using Sedc.MusicManager.WebApp.Data;
+﻿using Sedc.MusicManager.DataLayer;
 using Sedc.MusicManager.DomainModels;
 using Sedc.MusicManager.WebApp.ViewModels;
 using System;
@@ -12,16 +12,18 @@ namespace Sedc.MusicManager.WebApp.Controllers
     public class SongsController : Controller
     {
         private readonly MusicDb _db;
-
+        private readonly SongsRepository _songsRepository;
         public SongsController()
         {
             _db = new MusicDb();
+            _songsRepository = new SongsRepository();
         }
 
 
         public ActionResult Index()
         {
-            var songs = _db.Songs
+            var songs = _songsRepository
+                .GetAll()
                 .Select(s => new SongWithAlbumViewModel
                 {
                     Song = s,

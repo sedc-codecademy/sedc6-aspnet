@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Sedc.MusicManager.WebApp.Data;
+using Sedc.MusicManager.DataLayer;
 using Sedc.MusicManager.DomainModels;
 
 namespace Sedc.MusicManager.WebApp.Controllers
