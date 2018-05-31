@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sedc.MusicManager.WebApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,12 @@ namespace Sedc.MusicManager.WebApp.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var data = new Song();
+            data.Title = "hello again";
+            data.Description = "nothibg";
+            ViewBag.status = "active";
+            ViewData["somedata"] = "nodata";
+            return View(data);
         }
 
         public ActionResult About()

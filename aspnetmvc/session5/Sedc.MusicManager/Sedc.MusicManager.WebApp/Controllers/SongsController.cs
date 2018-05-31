@@ -96,6 +96,8 @@ namespace Sedc.MusicManager.WebApp.Controllers
             if (song == null)
                 return RedirectToAction("Index");
 
+            ViewBag.Albums = _db.Albums.ToList();
+
             return View(song);
         }
 
