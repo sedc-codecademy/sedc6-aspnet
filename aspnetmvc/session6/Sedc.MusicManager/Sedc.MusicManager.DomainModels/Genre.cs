@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Sedc.MusicManager.WebApp.Models
+namespace Sedc.MusicManager.DomainModels
 {
     public enum Genre
     {

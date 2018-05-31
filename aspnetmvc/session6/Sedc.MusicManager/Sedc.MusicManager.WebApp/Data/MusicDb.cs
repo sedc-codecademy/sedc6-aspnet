@@ -1,4 +1,4 @@
-﻿using Sedc.MusicManager.WebApp.Models;
+﻿using Sedc.MusicManager.DomainModels;
 using System.Data.Entity;
 
 namespace Sedc.MusicManager.WebApp.Data
@@ -7,8 +7,8 @@ namespace Sedc.MusicManager.WebApp.Data
     {
         public DbSet<Song> Songs { get; set; }
 
-        public System.Data.Entity.DbSet<Sedc.MusicManager.WebApp.Models.Album> Albums { get; set; }
+        public System.Data.Entity.DbSet<Album> Albums { get; set; }
 
-        public System.Data.Entity.DbSet<Sedc.MusicManager.WebApp.Models.Artist> Artists { get; set; }
+        public System.Data.Entity.DbSet<Artist> Artists { get; set; }
     }
 }

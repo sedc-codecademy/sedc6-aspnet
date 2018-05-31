@@ -1,5 +1,5 @@
 ﻿using Sedc.MusicManager.WebApp.Data;
-using Sedc.MusicManager.WebApp.Models;
+using Sedc.MusicManager.DomainModels;
 using Sedc.MusicManager.WebApp.ViewModels;
 using System;
 using System.Collections.Generic;
