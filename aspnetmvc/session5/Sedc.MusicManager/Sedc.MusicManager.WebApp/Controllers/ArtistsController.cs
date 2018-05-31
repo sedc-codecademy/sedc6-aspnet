@@ -11,116 +11,107 @@ using Sedc.MusicManager.WebApp.Models;
 
 namespace Sedc.MusicManager.WebApp.Controllers
 {
-    public class AlbumsController : Controller
+    public class ArtistsController : Controller
     {
         private MusicDb db = new MusicDb();
 
-        // GET: Albums
+        // GET: Artists
         public ActionResult Index()
         {
-            //var albumsList = db.Albums.ToList();
-            //var name= albumsList[0].Artist.FullName;
-            //var albums = db.Albums.Include(a => a.Artist).ToList();
-            //var nameSafely = albums[0].Artist.FullName;
-            var albums = db.Albums.Include(a => a.Artist).ToList();
-            return View(albums.ToList());
+            return View(db.Artists.ToList());
         }
 
-        // GET: Albums/Details/5
+        // GET: Artists/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = db.Albums.Find(id);
-            if (album == null)
+            Artist artist = db.Artists.Find(id);
+            if (artist == null)
             {
                 return HttpNotFound();
             }
-            return View(album);
+            return View(artist);
         }
 
-        // GET: Albums/Create
+        // GET: Artists/Create
         public ActionResult Create()
         {
-            ViewBag.ArtistId = new SelectList(db.Artists, "Id", "FullName");
             return View();
         }
 
-        // POST: Albums/Create
+        // POST: Artists/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Genre,ArtistId")] Album album)
+        public ActionResult Create([Bind(Include = "Id,FullName,ArtistType")] Artist artist)
         {
             if (ModelState.IsValid)
             {
-                db.Albums.Add(album);
+                db.Artists.Add(artist);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ArtistId = new SelectList(db.Artists, "Id", "FullName", album.ArtistId);
-            return View(album);
+            return View(artist);
         }
 
-        // GET: Albums/Edit/5
+        // GET: Artists/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = db.Albums.Find(id);
-            if (album == null)
+            Artist artist = db.Artists.Find(id);
+            if (artist == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "Id", "FullName", album.ArtistId);
-            return View(album);
+            return View(artist);
         }
 
-        // POST: Albums/Edit/5
+        // POST: Artists/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Genre,ArtistId")] Album album)
+        public ActionResult Edit([Bind(Include = "Id,FullName,ArtistType")] Artist artist)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(album).State = EntityState.Modified;
+                db.Entry(artist).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ArtistId = new SelectList(db.Artists, "Id", "FullName", album.ArtistId);
-            return View(album);
+            return View(artist);
         }
 
-        // GET: Albums/Delete/5
+        // GET: Artists/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Album album = db.Albums.Find(id);
-            if (album == null)
+            Artist artist = db.Artists.Find(id);
+            if (artist == null)
             {
                 return HttpNotFound();
             }
-            return View(album);
+            return View(artist);
         }
 
-        // POST: Albums/Delete/5
+        // POST: Artists/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Album album = db.Albums.Find(id);
-            db.Albums.Remove(album);
+            Artist artist = db.Artists.Find(id);
+            db.Artists.Remove(artist);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
