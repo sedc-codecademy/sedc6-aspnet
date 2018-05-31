@@ -1,0 +1,11 @@
+﻿@model Sedc.MusicManager.WebApp.Models.Song
+          model(some data from somewhere)
+controller----------------------------->view
+@{
+    ViewBag.Title = "Home Page";
+}
+@ViewBag.status
+@ViewData["somedata"]
+
+<h1>Title: @Model.Title</h1>
+<h1>Description: @Model.Description</h1>
