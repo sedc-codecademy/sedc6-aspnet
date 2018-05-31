@@ -102,23 +102,28 @@ namespace Sedc.MusicManager.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(int? id, Song song)
+        public ActionResult Edit(int? id, [Bind(Include ="Id,Title,Description,Duration,AlbumId")]Song song)
         {
             if (!id.HasValue)
                 return RedirectToAction("Index");
 
             if (!ModelState.IsValid)
+            {
+                ViewBag.Albums = _db.Albums.ToList();
                 return View(song);
-
+            }
             var dbSong = _db.Songs.FirstOrDefault(s => s.Id == id);
 
             if (dbSong == null)
                 return RedirectToAction("Index");
 
+            if(!_db.Albums.Any(x=>x.Id == song.AlbumId))
+                return RedirectToAction("Index");
+
             dbSong.Title = song.Title;
             dbSong.Description = song.Description;
             dbSong.Duration = song.Duration;
-
+            dbSong.AlbumId = song.AlbumId;
             _db.SaveChanges();
 
             return RedirectToAction("Index");
