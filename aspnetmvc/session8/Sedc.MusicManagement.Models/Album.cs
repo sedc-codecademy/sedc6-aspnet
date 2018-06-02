@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace Sedc.MusicManager.DomainModels
+namespace Sedc.MusicManagement.Models
 {
     public class Album
     {

@@ -1,4 +1,4 @@
-﻿namespace Sedc.MusicManager.DomainModels
+﻿namespace Sedc.MusicManagement.Models
 {
     public enum ArtistType
     {
