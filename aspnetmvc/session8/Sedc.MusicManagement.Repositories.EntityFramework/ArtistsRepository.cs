@@ -31,7 +31,9 @@ namespace Sedc.MusicManagement.Repositories.EntityFramework
 
         public Artist Create(Artist artist)
         {
-            throw new NotImplementedException();
+            var createdArtist = _db.Artists.Add(artist);
+            _db.SaveChanges();
+            return artist;
         }
 
         public Artist Update(Artist artist)
