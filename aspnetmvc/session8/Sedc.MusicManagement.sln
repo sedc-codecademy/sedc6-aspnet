@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.MusicManagement.Web", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.MusicManagement.Repositories.Interfaces", "Sedc.MusicManagement.Repositories.Interfaces\Sedc.MusicManagement.Repositories.Interfaces.csproj", "{C0362FB6-6F2A-4DC3-A3CB-C1BC1F92CAE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sedc.MusicManagement.Repositories.EntityFramework", "Sedc.MusicManagement.Repositories.EntityFramework\Sedc.MusicManagement.Repositories.EntityFramework.csproj", "{B3029203-819A-4DED-A70B-137D01313549}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{C0362FB6-6F2A-4DC3-A3CB-C1BC1F92CAE9}.Release|x64.Build.0 = Release|Any CPU
 		{C0362FB6-6F2A-4DC3-A3CB-C1BC1F92CAE9}.Release|x86.ActiveCfg = Release|Any CPU
 		{C0362FB6-6F2A-4DC3-A3CB-C1BC1F92CAE9}.Release|x86.Build.0 = Release|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Debug|x64.Build.0 = Debug|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Debug|x86.Build.0 = Debug|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Release|x64.ActiveCfg = Release|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Release|x64.Build.0 = Release|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Release|x86.ActiveCfg = Release|Any CPU
+		{B3029203-819A-4DED-A70B-137D01313549}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
