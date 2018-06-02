@@ -1,4 +1,5 @@
-﻿using Sedc.MusicManagement.Repositories.Interfaces;
+﻿using Sedc.MusicManagement.Repositories.EntityFramework;
+using Sedc.MusicManagement.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ namespace Sedc.MusicManagement.Web.Controllers
     {
         private readonly IArtistRepository _artsitsRepository;
 
-        //public ArtistsController()
-        //{
-        //    _artsitsRepository = new ArtistRepo
-        //}
+        public ArtistsController()
+        {
+            _artsitsRepository = new ArtistsRepository();
+        }
 
         public ActionResult Index()
         {

@@ -194,6 +194,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Artists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -216,6 +217,10 @@
     <ProjectReference Include="..\Sedc.MusicManagement.Models\Sedc.MusicManagement.Models.csproj">
       <Project>{929032ed-9f38-4557-8288-21d91125bed3}</Project>
       <Name>Sedc.MusicManagement.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sedc.MusicManagement.Repositories.EntityFramework\Sedc.MusicManagement.Repositories.EntityFramework.csproj">
+      <Project>{B3029203-819A-4DED-A70B-137D01313549}</Project>
+      <Name>Sedc.MusicManagement.Repositories.EntityFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sedc.MusicManagement.Repositories.Interfaces\Sedc.MusicManagement.Repositories.Interfaces.csproj">
       <Project>{C0362FB6-6F2A-4DC3-A3CB-C1BC1F92CAE9}</Project>

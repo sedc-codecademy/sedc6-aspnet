@@ -12,6 +12,11 @@ namespace Sedc.MusicManagement.Repositories.EntityFramework
     {
         private readonly MusicDb _db;
 
+        public ArtistsRepository()
+        {
+            _db = new MusicDb();
+        }
+
         public IEnumerable<Artist> GetAll()
         {
             List<Artist> artists = _db.Artists.ToList();
@@ -20,7 +25,8 @@ namespace Sedc.MusicManagement.Repositories.EntityFramework
 
         public Artist GetById(int id)
         {
-            throw new NotImplementedException();
+            Artist artist = _db.Artists.FirstOrDefault(x => x.Id == id);
+            return artist;
         }
 
         public Artist Create(Artist artist)
