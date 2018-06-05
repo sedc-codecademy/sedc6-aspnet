@@ -29,5 +29,7 @@ namespace AuthenticationDemo.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AuthenticationDemo.Models.Product> Products { get; set; }
     }
 }
