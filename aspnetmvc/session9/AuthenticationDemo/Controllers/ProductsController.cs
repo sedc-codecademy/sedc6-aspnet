@@ -11,17 +11,19 @@ using AuthenticationDemo.Models;
 
 namespace AuthenticationDemo.Controllers
 {
-    [Authorize]
+    
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+    
+        [Authorize(Roles ="salesperson,manager")]
         public async Task<ActionResult> Index()
         {
             var result = await db.Products.ToListAsync();
             return View(result);
         }
 
+        [Authorize(Roles = "salesperson,manager")]
         // GET: Products/Details/5
         public async Task<ActionResult> Details(int? id)
         {
@@ -37,17 +39,15 @@ namespace AuthenticationDemo.Controllers
             return View(product);
         }
 
-        // GET: Products/Create
+        [Authorize(Roles = "manager")]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "manager")]
         public async Task<ActionResult> Create([Bind(Include = "Id,Name,Quantity")] Product product)
         {
             if (ModelState.IsValid)
@@ -60,7 +60,7 @@ namespace AuthenticationDemo.Controllers
             return View(product);
         }
 
-        // GET: Products/Edit/5
+        [Authorize(Roles = "manager")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,11 +75,9 @@ namespace AuthenticationDemo.Controllers
             return View(product);
         }
 
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "manager")]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Quantity")] Product product)
         {
             if (ModelState.IsValid)
@@ -91,7 +89,7 @@ namespace AuthenticationDemo.Controllers
             return View(product);
         }
 
-        // GET: Products/Delete/5
+        [Authorize(Roles = "manager")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -106,9 +104,9 @@ namespace AuthenticationDemo.Controllers
             return View(product);
         }
 
-        // POST: Products/Delete/5
-        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "manager")]
+        [HttpPost, ActionName("Delete")]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Product product = await db.Products.FindAsync(id);
