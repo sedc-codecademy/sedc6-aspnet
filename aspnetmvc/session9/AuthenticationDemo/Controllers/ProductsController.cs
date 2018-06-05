@@ -11,11 +11,11 @@ using AuthenticationDemo.Models;
 
 namespace AuthenticationDemo.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
-        // GET: Products
+        
         public async Task<ActionResult> Index()
         {
             var result = await db.Products.ToListAsync();
