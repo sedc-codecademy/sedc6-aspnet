@@ -25,6 +25,9 @@ namespace Bundling.WebAppMvc
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/persons-dashboard")
+                .Include("~/Scripts/data-table.min.js", "~/Scripts/persons-dashborad.init.js"));
         }
     }
 }
