@@ -17,7 +17,12 @@ namespace Sedc.MusicManagement.Web.Controllers
         {
             _artsitsRepository = new ArtistsRepository();
         }
-
+        
+        protected override void Dispose(bool disposing)
+        {             
+            _artsitsRepository.Dispose();
+            base.Dispose(disposing);
+        }
         public ActionResult Index()
         {
             var artists = _artsitsRepository.GetAll();

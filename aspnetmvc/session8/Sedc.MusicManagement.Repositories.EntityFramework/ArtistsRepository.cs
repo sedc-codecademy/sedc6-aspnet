@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Sedc.MusicManagement.Repositories.EntityFramework
 {
-    public class ArtistsRepository : IArtistRepository
+    public class ArtistsRepository : IArtistRepository, IDisposable
     {
         private readonly MusicDb _db;
 
@@ -44,6 +44,11 @@ namespace Sedc.MusicManagement.Repositories.EntityFramework
         public bool Delete(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public void Dispose()
+        {
+            _db.Dispose();
         }
     }
 }

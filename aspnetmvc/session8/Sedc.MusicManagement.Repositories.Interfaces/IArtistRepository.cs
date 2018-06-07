@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Sedc.MusicManagement.Repositories.Interfaces
 {
-    public interface IArtistRepository
+    public interface IArtistRepository : IDisposable
     {
         //Read
         IEnumerable<Artist> GetAll();
